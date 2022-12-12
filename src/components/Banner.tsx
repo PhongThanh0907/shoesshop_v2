@@ -1,51 +1,61 @@
-import React from "react";
+import React, { useState } from "react";
 import ButtonBanner from "./ButtonBanner";
-import Sneaker01 from "../assets/sneaker1.png";
-import Sneaker02 from "../assets/sneaker2.png";
-import Sneaker03 from "../assets/sneaker3.png";
 import background from "../assets/background.webp";
+import { Cursor, useTypewriter } from "react-simple-typewriter";
+import { ListImageBanner } from "../constants/selectOption";
 
 type Props = {};
 
 const Banner = (props: Props) => {
-  const listImage = [Sneaker01, Sneaker02, Sneaker03];
+  const [changeImage, setChangeImage] = useState<number>(1);
+  const [text] = useTypewriter({
+    words: ["Just Do It", "Let's Run", "Best Choice"],
+    loop: 0,
+    delaySpeed: 2000,
+  });
   return (
-    <div className="relative h-[700px]">
+    <div className="relative h-[550px] lg:h-[700px]">
       <img
         className="absolute w-full object-cover h-full"
         src={background}
         alt=""
       />
 
-      <div className="relative grid grid-cols-2 pt-20 z-0 px-20">
-        <h3 className="absolute top-2/4 left-2/4 -translate-x-2/4 -translate-y-2/4 text-[400px] font-semibold text-blue-800 text-opacity-30">
+      <div className="relative h-full grid lg:grid-cols-2 lg:pt-36 z-0 lg:px-20">
+        <h3 className="absolute top-40 lg:top-72 left-2/4 -translate-x-2/4 -translate-y-2/4 text-[150px] lg:text-[400px] font-semibold text-blue-800 text-opacity-30">
           NIKE
         </h3>
-        <div className="w-full h-full flex flex-col  items-start justify-center text-white z-10">
-          <h3 className="text-[80px] font-semibold ">
-            LET'S <br /> RUN
-          </h3>
-          <p className="my-8">You'll be amazed to find the best price shoes</p>
-          <ButtonBanner />
+        <div className="w-full h-full top-44 lg:-top-10  items-center mx-auto flex flex-col absolute lg:relative lg:items-start justify-center text-white z-10">
+          <div className="text-3xl lg:text-[80px] hidden lg:inline">
+            <span className=" font-semibold h-24">{text}</span>
+            <Cursor cursorColor="#BF40BF" />
+          </div>
+          <p className="my-4 lg:my-8">
+            You'll be amazed to find the best price shoes
+          </p>
+          <div className="">
+            <ButtonBanner />
+          </div>
         </div>
-        <div className="py-5 w-full h-full flex flex-col lg:gap-y-[60px] md:gap-y-[40px] gap-y-[15px] items-end justify-center max-md:justify-end text-white z-10">
-          {listImage.map((item, index) => (
+        <div className="w-full absolute gap-10 -top-28 lg:relative flex lg:flex-col lg:gap-y-14 items-end justify-center z-10">
+          {ListImageBanner.map((item) => (
             <img
-              className="lg:w-[100px] lg:h-[100px] md:w-[80px] md:h-[80px] sm:w-[70px] sm:h-[70px] w-[65px] h-[65px] cursor-pointer hover:scale-110 transition-all sweezy-custom-cursor-hover"
-              key={index}
-              src={item}
+              onClick={() => setChangeImage(item.value)}
+              className="lg:w-20 lg:h-20 w-16 h-16  cursor-pointer hover:scale-110 transition-all hover:rotate-45 duration-300"
+              key={item.value}
+              src={item.img}
               alt="img"
             />
           ))}
         </div>
-        <div className="absolute inset-0 flex items-center justify-center w-full banner-product">
+        <div className="absolute -top-56 lg:top-32 flex items-center justify-center w-full">
           <img
-            className="lg:w-[32%] md:w-[35%] sm:w-[40%] w-[60%] z-10 transition-all banner-product-img"
-            src={Sneaker01}
+            className="z-10 w-[52%] lg:w-[20%] lg:h-[20%] transition-all animation-banner"
+            src={ListImageBanner.find((c) => c.value === changeImage)?.img}
             alt="img1"
           />
         </div>
-        <div className="circle-effect"></div>
+        <div className="circle-effect h-[320px] w-[320px] lg:h-[480px] lg:w-[480px] top-44 lg:top-72"></div>
       </div>
     </div>
   );

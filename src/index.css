@@ -26,12 +26,25 @@
 .circle-effect {
   position: absolute;
   left: 50%;
-  top: 50%;
   transform: translate(-50%, -50%);
-  height: 400px;
-  width: 400px;
   border-radius: 50%;
   animation: changeColor 4s linear infinite;
+}
+
+.animation-banner{
+  animation: moveUpDown 4s linear infinite;
+}
+
+@keyframes moveUpDown {
+  0%, 50%, 100% {
+    transform: translateY(0px);
+  }
+  25% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
 }
 
 @keyframes changeColor {

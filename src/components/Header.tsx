@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Logo from "../assets/logo.jpg";
 import {
   MagnifyingGlassIcon,
   ShoppingBagIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
+
+import Logo from "../assets/logoo.jpg";
 import { HeaderMenu } from "../constants/selectOption";
 type Props = {};
 
@@ -61,7 +62,7 @@ const Header = (props: Props) => {
 
         <div className="mx-auto">
           <img
-            className="rounded-full h-24 w-24 lg:h-32 lg:w-32 object-cover"
+            className="rounded-full h-24 w-24 lg:h-32 lg:w-48 object-cover"
             src={Logo}
             alt="logo"
           />

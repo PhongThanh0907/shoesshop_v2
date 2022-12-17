@@ -196,6 +196,11 @@
   animation: textLight 5s linear infinite;
 }
 
+.animation-img{
+  animation: moveImg 5s infinite;
+  animation-duration: calc(120s / var(--i));
+}
+
 @keyframes animate1 {
   0% {
     left: -100%;

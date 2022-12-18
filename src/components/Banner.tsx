@@ -6,6 +6,7 @@ import "animate.css/animate.min.css";
 import ButtonBanner from "./ButtonBanner";
 import background from "../assets/background.webp";
 import { ListImageBanner } from "../constants/selectOption";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -38,7 +39,9 @@ const Banner = (props: Props) => {
               You'll be amazed to find the best price shoes
             </p>
             <div className="">
-              <ButtonBanner />
+              <Link to="/product">
+                <ButtonBanner />
+              </Link>
             </div>
           </div>
           <div className="w-full absolute gap-10 -top-28 lg:relative flex lg:flex-col lg:gap-y-14 items-end justify-center z-10">

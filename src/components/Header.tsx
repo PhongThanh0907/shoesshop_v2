@@ -7,6 +7,7 @@ import {
 
 import Logo from "../assets/logoo.jpg";
 import { HeaderMenu } from "../constants/selectOption";
+import { Link } from "react-router-dom";
 type Props = {};
 
 const Header = (props: Props) => {
@@ -34,15 +35,9 @@ const Header = (props: Props) => {
               openMenu ? "absolute -rotate-45" : ""
             } lg:h-[5px] lg:w-[40px] h-[4px] w-[35px] mainColor opacity-100 duration-300`}
           />
+
           {openMenu ? (
             <div className="absolute top-12 w-80 lg:w-96 mainColor opacity-100 px-10 -translate-x-6 lg:-translate-x-32 h-60 lg:h-44 p-4 space-y-2 text-lg duration-300 z-50">
-              {/* <div className="relative my-3">
-                <input
-                  type="text"
-                  className="h-8 w-60 focus:outline-none px-8 rounded-lg text-white"
-                />
-                <MagnifyingGlassIcon className="absolute top-1 left-1 h-6 w-6 text-textColor" />
-              </div> */}
               {HeaderMenu.map((item) => (
                 <h4 className="text-white" key={item.value}>
                   {item.label}
@@ -51,21 +46,25 @@ const Header = (props: Props) => {
             </div>
           ) : (
             <div className="absolute top-12 w-96 mainColor opacity-0 h-60 lg:h-44 -translate-x-[400px] p-4 space-y-2 text-lg duration-300 z-50">
-              {HeaderMenu.map((item) => (
-                <h4 className="text-white" key={item.value}>
-                  {item.label}
-                </h4>
-              ))}
+              <Link to="/product">
+                {HeaderMenu.map((item) => (
+                  <h4 className="text-white" key={item.value}>
+                    {item.label}
+                  </h4>
+                ))}
+              </Link>
             </div>
           )}
         </div>
 
         <div className="mx-auto">
-          <img
-            className="rounded-full h-24 w-24 lg:h-32 lg:w-48 object-cover"
-            src={Logo}
-            alt="logo"
-          />
+          <Link to="/">
+            <img
+              className="rounded-full h-24 w-24 lg:h-32 lg:w-48 object-cover"
+              src={Logo}
+              alt="logo"
+            />
+          </Link>
         </div>
         <div className="flex gap-8 items-center justify-end">
           <div className="hidden lg:relative lg:inline">

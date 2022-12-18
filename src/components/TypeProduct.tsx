@@ -4,6 +4,7 @@ import "animate.css/animate.min.css";
 
 import { listTypeProudct } from "../constants/selectOption";
 import background from "../assets/background.webp";
+import { Link } from "react-router-dom";
 
 type Props = {};
 
@@ -18,15 +19,17 @@ const TypeProduct = (props: Props) => {
       <AnimationOnScroll animateIn="animate__bounceIn">
         <div className="grid grid-cols-4 z-10 text-lightBlue relative">
           {listTypeProudct.map((item) => (
-            <div
-              className="h-80 relative custom-item group cursor-pointer"
-              key={item.value}
-            >
-              <img className="h-full object-cover" src={item.img} alt="img" />
-              <div className="brand-style group-hover:opacity-100 text-3xl">
-                <h1>{item.label}</h1>
+            <Link to="/product">
+              <div
+                className="h-80 relative custom-item group cursor-pointer"
+                key={item.value}
+              >
+                <img className="h-full object-cover" src={item.img} alt="img" />
+                <div className="brand-style group-hover:opacity-100 text-3xl">
+                  <h1>{item.label}</h1>
+                </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </AnimationOnScroll>

@@ -1,5 +1,6 @@
 import React from "react";
 import { AnimationOnScroll } from "react-animation-on-scroll";
+import { Link } from "react-router-dom";
 
 import background from "../assets/banner-sale-1.jpg";
 import Product from "../assets/sneaker-sale-2.jpg";
@@ -29,7 +30,9 @@ const Promotion = (props: Props) => {
               <TextLight title="NIKE AIR MAX ULTRA" />
               <p className="text-red-600 text-3xl font-bold my-2">1,900,000đ</p>
               <p className="line-through py-4">2,400,000đ</p>
-              <ButtonColor name="Chi Tiết" id="" />
+              <Link to="/product">
+                <ButtonColor name="Buy Now" id="" />
+              </Link>
             </div>
           </div>
           <div>
